@@ -26,7 +26,7 @@ hl.monitor({
     output   = "",
     mode     = "preferred",
     position = "auto",
-    scale    = "auto",
+    scale    = "1",
 })
 
 
@@ -57,6 +57,9 @@ local menu = "wofi --show drun"
 
 hl.on("hyprland.start", function ()
   hl.exec_cmd("systemctl --user start hyprpolkitagent")
+  hl.exec_cmd("waybar")
+  hl.exec_cmd("mako")
+  hl.exec_cmd("hypridle")
 end)
 
 
@@ -316,6 +319,10 @@ hl.bind(mainMod .. " + SHIFT + left",  hl.dsp.window.resize({ x = -40, y = 0,   
 hl.bind(mainMod .. " + SHIFT + right", hl.dsp.window.resize({ x = 40,  y = 0,   relative = true }), { repeating = true })
 hl.bind(mainMod .. " + SHIFT + up",    hl.dsp.window.resize({ x = 0,   y = -40, relative = true }), { repeating = true })
 hl.bind(mainMod .. " + SHIFT + down",  hl.dsp.window.resize({ x = 0,   y = 40,  relative = true }), { repeating = true })
+-- Lock screen, screenshots (region / full) to ~/Pictures/Screenshots + clipboard
+hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("loginctl lock-session"))
+hl.bind("Print", hl.dsp.exec_cmd("f=~/Pictures/Screenshots/$(date +%F_%H-%M-%S).png; grim -g \"$(slurp)\" $f && wl-copy < $f"))
+hl.bind("SHIFT + Print", hl.dsp.exec_cmd("f=~/Pictures/Screenshots/$(date +%F_%H-%M-%S).png; grim $f && wl-copy < $f"))
 
 -- Laptop multimedia keys for volume and LCD brightness
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"), { locked = true, repeating = true })
