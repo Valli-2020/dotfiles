@@ -30,7 +30,7 @@
         },
         {
             "type": "packages",
-            "format": "{} (pacman)",
+            "format": "{pacman} (pacman)",
             "key": "pkgs  ", 
         },
         {   "type": "shell",
