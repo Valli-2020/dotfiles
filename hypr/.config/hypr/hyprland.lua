@@ -44,6 +44,8 @@ end)
 -------------------------------
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
+-- Dolphin "Open with" menu outside Plasma (needs archlinux-xdg-menu)
+hl.env("XDG_MENU_PREFIX", "arch-")
 
 -----------------------
 ---- LOOK AND FEEL ----
