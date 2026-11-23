@@ -57,7 +57,7 @@ hl.config({
             active_border   = c.outline,
             inactive_border = c.outline_variant,
         },
-        resize_on_border = true,
+        resize_on_border = false,
         allow_tearing = false,
         layout = "dwindle",
     },

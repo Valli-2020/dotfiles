@@ -32,7 +32,7 @@ output_path = '~/.config/rofi/colors.rasi'
 [templates.cava]
 input_path = '~/.config/matugen/templates/matugen-cava'
 output_path = '~/.config/cava/config'
-post_hook = "pkill -USR1 cava"
+post_hook = "pkill -USR1 cava || true"
 
 
 # Lua colours for hyprland.lua (Hyprland 0.57 reads Lua, colors.conf above is for hyprlock)
