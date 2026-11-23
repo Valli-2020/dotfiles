@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Waybar-Modul für BudsLink: Akku + Geräuschmodus. Argument "cycle" wechselt den Modus."""
+"""Waybar module for BudsLink: battery + noise control. Argument "cycle" switches the mode."""
 import json
 import subprocess
 import sys
@@ -9,8 +9,8 @@ BUS = "io.github.maniacx.BudsLink"
 ROOT = "/io/github/maniacx/BudsLink"
 MGR = BUS + ".DeviceManager"
 DEV = BUS + ".Device"
-# shortcut: Reihenfolge der BudsLink-Toggles für CMF Buds Pro 2 (off, transparency, ANC); andere Buds können abweichen
-MODES = {1: "Aus", 2: "Transparenz", 3: "ANC"}
+# shortcut: BudsLink toggle order for CMF Buds Pro 2 (off, transparency, ANC); other buds may differ
+MODES = {1: "Off", 2: "Transparency", 3: "ANC"}
 
 
 def bus(*args):
@@ -19,7 +19,7 @@ def bus(*args):
 
 
 def main():
-    # startet BudsLink per D-Bus-Aktivierung und hält den Dienst am Leben (Heartbeat 135 s)
+    # starts BudsLink via D-Bus activation and keeps the service alive (heartbeat 135 s)
     bus("call", BUS, ROOT, MGR, "HoldService", "s", "waybar")
     devs = (bus("call", BUS, ROOT, MGR, "ListDevices") or [[]])[0]
     if not devs:
@@ -31,7 +31,7 @@ def main():
     if sys.argv[1:] == ["cycle"]:
         nxt = state.get("toggle1State", 1) % len(MODES) + 1
         bus("call", BUS, path, DEV, "UiAction", "si", "toggle1State", str(nxt))
-        time.sleep(0.5)  # BudsLink meldet den neuen Zustand mit 200 ms Verzögerung
+        time.sleep(0.5)  # BudsLink publishes the new state with a 200 ms delay
         return
 
     alias = bus("get-property", BUS, path, DEV, "Alias") or "Buds"
@@ -40,7 +40,7 @@ def main():
     buds = [v for k, v in lvl.items() if k != "Case" and v > 0]
     text = f"󰋋 {min(buds)}% {mode}" if buds else f"󰋋 {mode}"
     parts = " · ".join(f"{k} {v}%" for k, v in lvl.items() if v > 0)
-    tip = f"{alias}\n{parts}\nModus: {mode}\nKlick: Modus wechseln · Rechtsklick: BudsLink öffnen"
+    tip = f"{alias}\n{parts}\nMode: {mode}\nClick: switch mode · Right-click: open BudsLink"
     print(json.dumps({"text": text, "tooltip": tip, "class": mode.lower()}))
 
 
