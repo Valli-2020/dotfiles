@@ -1,3 +1,7 @@
+# eigene Skripte und Spicetify (~/.local/bin)
+typeset -U path
+path=($HOME/.local/bin $path)
+
 # Arch has no /etc/zsh/zshrc: keypad mode + Home/End/Delete must be set here
 if (( ${+terminfo[smkx]} && ${+terminfo[rmkx]} )); then
   zle-line-init()   { echoti smkx }
