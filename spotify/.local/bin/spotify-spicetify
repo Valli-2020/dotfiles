@@ -1,0 +1,10 @@
+#!/bin/sh
+# Startet Spotify; nach einem Spotify-Update wird Spicetify erst neu angewendet.
+S="$HOME/.spicetify/spicetify"
+inst=$(pacman -Q spotify | sed -E "s/^spotify ([0-9]+:)?//; s/-[0-9]+$//")
+bak=$(sed -n "/^\[Backup\]/,/^\[/s/^version *= *//p" "$HOME/.config/spicetify/config-xpui.ini")
+case "$bak" in
+  "$inst".*|"$inst") ;;
+  *) "$S" restore backup apply >/dev/null 2>&1 || notify-send Spicetify "Patch nach Spotify-Update fehlgeschlagen (sudo chmod -R a+wr /opt/spotify?)" ;;
+esac
+exec spotify "$@"
