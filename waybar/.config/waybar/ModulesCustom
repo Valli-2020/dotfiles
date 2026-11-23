@@ -5,6 +5,16 @@
 /* Custom Modules like weather browser, tty, file manager at the beginning */
 
 {
+"custom/budslink": {
+	"format": "{}",
+	"return-type": "json",
+	"interval": 15,
+	"exec": "$HOME/.config/waybar/scripts/budslink.py",
+	"on-click": "$HOME/.config/waybar/scripts/budslink.py cycle",
+	"on-click-right": "budslink",
+	"tooltip": true,
+},
+
 "custom/weather": {
 	"format": "{}",
 	"format-alt": "{alt}: {}",

@@ -38,6 +38,8 @@
 	],
 
 "modules-right": [
+        "custom/budslink",
+        "custom/separator#blank",
         "mpris",
         "custom/separator#dot-line",
         "group/notify",	
