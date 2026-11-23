@@ -213,6 +213,9 @@ user_pref("findbar.highlightAll", true);
 // visit https://github.com/yokoffing/Betterfox/wiki/Common-Overrides
 // visit https://github.com/yokoffing/Betterfox/wiki/Optional-Hardening
 // Enter your personal overrides below this line:
+user_pref("browser.tabs.unloadOnLowMemory", true);       // Firemin-Ersatz: Tabs bei RAM-Mangel entladen
+user_pref("browser.sessionhistory.max_total_viewers", 2); // weniger Seiten im Zurueck-Cache
+user_pref("media.ffmpeg.vaapi.enabled", true);            // Video-Dekodierung auf der Vega-iGPU (VA-API)
 
 
 /****************************************************************************
