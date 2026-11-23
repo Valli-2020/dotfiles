@@ -44,3 +44,9 @@ post_hook = 'hyprctl reload'
 [templates.starship]
 input_path = '~/.config/matugen/templates/starship.toml'
 output_path = '~/.config/starship.toml'
+
+# Firefox via Pywalfox extension (reads the pywal colour file)
+[templates.pywalfox]
+input_path = '~/.config/matugen/templates/pywalfox-colors.json'
+output_path = '~/.cache/wal/colors.json'
+post_hook = 'pywalfox update || true'
