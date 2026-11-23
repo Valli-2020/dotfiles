@@ -237,6 +237,7 @@
 },
 
 "mpris": {
+	"player": "spotify",
 	"interval": 10,
 	"format": "{player_icon} <i>{dynamic}</i>",
 	"format-paused": "{status_icon} <i>{artist} {title}</i>",
