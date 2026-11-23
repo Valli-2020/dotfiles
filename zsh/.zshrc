@@ -12,7 +12,6 @@ bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
 typeset -U path
-PROMPT="%B%F{green}%n@%m%f%b:%B%F{blue}%~%f%b %(!.#.$) "
 
 autoload -Uz compinit && compinit
 zstyle ":completion:*" menu select
@@ -26,3 +25,8 @@ HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 setopt SHARE_HISTORY HIST_IGNORE_DUPS HIST_IGNORE_SPACE HIST_REDUCE_BLANKS
+
+# Prompt: starship (preset pastel-powerline, ~/.config/starship.toml)
+eval "$(starship init zsh)"
+# must be sourced last
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
