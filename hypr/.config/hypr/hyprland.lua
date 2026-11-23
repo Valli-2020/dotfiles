@@ -34,7 +34,6 @@ hl.on("hyprland.start", function ()
     hl.exec_cmd("awww-daemon")
     hl.exec_cmd("waybar")
     hl.exec_cmd("swaync")
-    hl.exec_cmd("nm-applet")
     hl.exec_cmd("blueman-applet")
     hl.exec_cmd("hypridle")
 end)
@@ -180,6 +179,8 @@ hl.bind(mainMod .. " + CTRL + B",       hl.dsp.exec_cmd(scripts .. "WaybarStyles
 hl.bind(mainMod .. " + ALT + B",        hl.dsp.exec_cmd(scripts .. "WaybarLayout.sh"))
 hl.bind(mainMod .. " + H",              hl.dsp.exec_cmd("pkill -SIGUSR1 waybar"))
 hl.bind(mainMod .. " + N",              hl.dsp.exec_cmd("swaync-client -t -sw"))
+hl.bind(mainMod .. " + SHIFT + W",      hl.dsp.exec_cmd("networkmanager_dmenu"))
+hl.bind(mainMod .. " + SHIFT + B",      hl.dsp.exec_cmd("rofi-bluetooth"))
 
 -- Screenshots: region / full screen, saved to ~/Pictures/Screenshots and copied
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd(scripts .. "screenshot.sh"))
