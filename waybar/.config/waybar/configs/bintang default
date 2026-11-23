@@ -30,6 +30,8 @@
 	"custom/separator#blank",
 	"bluetooth",
 	"custom/separator#blank",
+	"custom/budslink",
+	"custom/separator#blank",
 	"tray",
 	"custom/separator#dot-line",
 	"mpris",
@@ -40,8 +42,6 @@
 	],
 
 "modules-right": [
-        "custom/budslink",
-        "custom/separator#blank",
         "group/notify",	
 	"battery",
 	"custom/separator#blank",  
