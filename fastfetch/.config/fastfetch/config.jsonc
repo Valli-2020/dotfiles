@@ -54,6 +54,19 @@
             "type": "memory",
             "key": "memory",
         },
+        {
+            "type": "cpu",
+            "key": "cpu   ",
+        },
+        {
+            "type": "disk",
+            "key": "disk  ",
+            "folders": "/",
+        },
+        {
+            "type": "battery",
+            "key": "akku  ",
+        },
         "break",
         {
             "type": "colors",
