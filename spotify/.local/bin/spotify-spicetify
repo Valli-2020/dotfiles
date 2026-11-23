@@ -7,4 +7,5 @@ case "$bak" in
   "$inst".*|"$inst") ;;
   *) "$S" restore backup apply >/dev/null 2>&1 || notify-send Spicetify "Patch nach Spotify-Update fehlgeschlagen (sudo chmod -R a+wr /opt/spotify?)" ;;
 esac
-exec spotify "$@"
+# Canvas-Videos (VP9) per VA-API lassen den GPU-Prozess auf Renoir abstürzen
+exec spotify --disable-accelerated-video-decode "$@"
