@@ -65,7 +65,7 @@
         },
         {
             "type": "battery",
-            "key": "battery",
+            "key": "batt  ",
         },
         "break",
         {
